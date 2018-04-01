@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.MajorProject.bluetoothmessenger">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- Home screen of the app -->
+        <activity
+            android:name="com.example.MajorProject.bluetoothmessenger.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Screen to view and edit the user profile -->
+        <activity
+            android:name="com.example.MajorProject.bluetoothmessenger.ProfileActivity"
+            android:label="@string/title_profile"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:configChanges="orientation|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.MajorProject.bluetoothmessenger.MainActivity" />
+        </activity>
+
+        <!-- Chat activity -->
+
+        <activity android:name="com.example.MajorProject.bluetoothmessenger.ChatActivity" android:configChanges="orientation|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.MajorProject.bluetoothmessenger.MainActivity" />
+        </activity>
+
+        <activity
+            android:name="com.example.MajorProject.bluetoothmessenger.DeviceListActivity"
+            android:label="Select a device to connect"
+            android:theme="@android:style/Theme.Holo.Dialog"
+            android:configChanges="orientation|screenSize"/>
+
+
+        <activity
+            android:name="com.example.MajorProject.bluetoothmessenger.GroupChatDeviceListActivity"
+            android:label="Choose devices"
+            android:theme="@android:style/Theme.Holo.Dialog"
+            android:configChanges="orientation|screenSize"/>
+
+    </application>
+
+</manifest>
